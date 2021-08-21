@@ -13,14 +13,14 @@ $(document).ready(function() {
             alert('Please fill out all the fields.');
             return false;
         }
-        else if(phone > 10 || phone < 10 ) {
+        else if(phone.length > 10 || phone.length < 10 ) {
             alert('Phone number must be 10 digits!');
             return false;
         }
         
         //use ajax to submit the data
         $.ajax({
-            url:'http://deniskibe.pw:8081/',
+            url:'http://deniskibe.pw:8080/api/ppdata',
             method:'Post',
             dataType:'json',
             data:JSON.stringify({'firstname':firstname,'lastname':lastname,'email':email,'phone':phone,'message':message}),
